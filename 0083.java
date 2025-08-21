@@ -1,4 +1,4 @@
-https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/
+https://leetcode.com/problems/remove-duplicates-from-sorted-list/solutions/7061378/linked-list-by-ashu_129-qaoz/
 
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
