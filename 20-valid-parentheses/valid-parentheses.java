@@ -1,34 +1,31 @@
 class Solution {
     public boolean isValid(String s) {
-        Stack<Character> st = new Stack<>();
-        for(char c :s.toCharArray()){
-            if(st.isEmpty() || c == '(' || c == '[' || c == '{'){
-                st.push(c);
-                continue;
-            }
-            else if(c == ')'){
-                if(st.peek() == '('){
-                st.pop();
-                }else{
-                    return false;
-                }
+        // create hashmap for unique storage 
+        //create stack 
+        HashMap <Character , Character> map = new HashMap<>();
+        Stack <Character> st = new Stack<>();
 
-            }
-             else if(c == '}'){
-                if(st.peek() == '{'){
-                st.pop();
-                 }else{
+        //put values in map for key as closing brackect to its corresponding openning bracket 
+        map.put(')','(');
+        map.put(']','[');
+        map.put('}','{');
+
+        //convert string to char array to iterrate for stack operations 
+        for(char c : s.toCharArray()){
+            if(map.containsKey(c)){
+                if(st.empty()){
+                    return false;
+                }
+                char top = st.pop();
+                if(map.get(c) != top){
                     return false;
                 }
             }
-             else if(c == ']'){
-                if(st.peek() == '['){
-                st.pop();
-                 }else{
-                    return false;
+            else{
+                    st.push(c);
                 }
-            }
         }
-        return st.isEmpty();
+        return st.empty();
+
     }
 }
