@@ -1,27 +1,29 @@
 class Solution {
     public void setZeroes(int[][] matrix) {
-        boolean rowf = false;
-        boolean colf = false;
+        boolean fc = false;
+        boolean fr = false;
         int n = matrix.length;
         int m = matrix[0].length;
-        for(int i = 0 ;i<n;i++) if(matrix[i][0] == 0) rowf = true;
-        for(int j= 0 ;j<m;j++) if(matrix[0][j] == 0) colf =  true;
+
+        for(int i = 0 ;i<n ;i++) if(matrix[i][0] == 0) fr = true;
+        for(int j = 0 ;j<m ;j++) if(matrix[0][j] == 0) fc= true;
 
         for(int i = 1;i<n;i++){
             for(int j = 1;j<m ;j++){
                 if(matrix[i][j] == 0){
-                    matrix[i][0] = 0;
+                    matrix[i][0] =0;
                     matrix[0][j] = 0;
                 }
             }
         }
-        for(int i =1;i<n;i++){
+        for(int i = 1 ;i<n ;i++){
             for(int j = 1 ;j<m;j++){
-                if(matrix[i][0] == 0 || matrix[0][j] == 0) matrix[i][j] = 0;
+                if(matrix[i][0] == 0 || matrix[0][j] == 0){
+                    matrix[i][j] = 0;
+                }
             }
         }
-        if(rowf) for(int i = 0 ;i<n ;i++) matrix[i][0] = 0;
-        if(colf) for(int j = 0 ;j<m ;j++) matrix[0][j] = 0;
-
+        if(fr) for(int i = 0 ;i<n ;i++) matrix[i][0] =0;
+        if(fc) for(int j = 0 ;j<m ;j++) matrix[0][j] =0;
     }
 }
