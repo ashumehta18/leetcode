@@ -1,19 +1,18 @@
 class Solution {
     public int findContentChildren(int[] g, int[] s) {
-        int n = g.length;
-        int m = s.length;
-        int l = 0; //chil
-        int r = 0;//cooki
         Arrays.sort(g);
         Arrays.sort(s);
-
-        while(l<n && r<m){
-            if(s[r]>=g[l]){
-                l++;
+       // int count = 0;
+        int n = s.length;
+        int i = 0;
+        int j = 0;
+        while(i<n && j<g.length){
+            if(g[j]<=s[i]){
+              //  count++;
+                j++;
             }
-            r++;
-           
+            i++;
         }
-        return l;
+        return j;
     }
 }
